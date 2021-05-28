@@ -9,47 +9,28 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li><a href="index.php">Home</a></li>
-        
-          <li class="drop-down"><a>User</a>
-            <ul>
-            <li><a href="">User List</a></li>
-            
-            </ul>
-          </li>
+      
           <li class="drop-down"><a>Patient</a>
             <ul>
-            <li><a href="">Patient List</a></li>
+            <li><a href="">List Request</a></li>
             
-            </ul>
-          </li>
-          <li class="drop-down"><a>Nurse</a>
-            <ul>
-            <li><a href="">Nurse Details</a></li>
-          
             </ul>
           </li>
           <li class="drop-down"><a>Feedback</a>
             <ul>
+            <li><a href="">Add Feedback</a></li>
+            <li><a href="">List Feedback</a></li>
+
+            </ul>
+          </li>
+          <li class="drop-down"><a>Nurse</a>
+            <ul>
+            <li><a href="profile.php">My profile</a></li>
+            <li><a href="change_password.php">Change password</a></li>
+           
+            </ul>
+          </li>
           
-            <li><a href="">User</a></li>
-            <li><a href="">Nurse</a></li>
-            </ul>
-          </li>
-          <li class="drop-down"><a>Report</a>
-            <ul>
-            
-            <li><a href="">User</a></li>
-            <li><a href="">Nurse</a></li>
-            </ul>
-          </li>
-          <li class="drop-down"><a>Admin</a>
-            <ul>
-            
-            <li><a href="change_password.php">Change Password</a></li>
-            
-            </ul>
-            </li>
-          <li><a href="add_category.php">Add category</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->

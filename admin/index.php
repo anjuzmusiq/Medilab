@@ -43,10 +43,7 @@ include ("connect.php");
 include ("header.php");
 ?>
 
-
-
-<div id="preloader"></div>
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+       
 
   <!-- Vendor JS Files -->
   <script src="../assets/vendor/jquery/jquery.min.js"></script>

@@ -10,46 +10,34 @@
         <ul>
           <li><a href="index.php">Home</a></li>
         
-          <li class="drop-down"><a>User</a>
-            <ul>
-            <li><a href="">User List</a></li>
-            
-            </ul>
-          </li>
+          
           <li class="drop-down"><a>Patient</a>
             <ul>
-            <li><a href="">Patient List</a></li>
-            
+            <li><a href="add_patient.php">Add Patient</a></li>
+            <li><a href="">View Patient</a></li>
+            <li><a href="">Edit Patient</a></li>
             </ul>
           </li>
           <li class="drop-down"><a>Nurse</a>
             <ul>
-            <li><a href="">Nurse Details</a></li>
-          
+            <li><a href="">List All Nurses</a></li>
+            <li><a href="">Selected Nurses</a></li>
             </ul>
           </li>
           <li class="drop-down"><a>Feedback</a>
             <ul>
-          
-            <li><a href="">User</a></li>
-            <li><a href="">Nurse</a></li>
+            <li><a href="">Add Feedback</a></li>
+            <li><a href="">List Feedback</a></li>
+            
+      
+          </ul>
+          </li>
+          <li class="drop-down"><a>User</a>
+            <ul>
+            <li><a href="profile.php">My Profile</a></li>
+            <li><a href="change_password.php">Change password</a></li>
             </ul>
           </li>
-          <li class="drop-down"><a>Report</a>
-            <ul>
-            
-            <li><a href="">User</a></li>
-            <li><a href="">Nurse</a></li>
-            </ul>
-          </li>
-          <li class="drop-down"><a>Admin</a>
-            <ul>
-            
-            <li><a href="change_password.php">Change Password</a></li>
-            
-            </ul>
-            </li>
-          <li><a href="add_category.php">Add category</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->

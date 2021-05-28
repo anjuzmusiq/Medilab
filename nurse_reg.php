@@ -59,7 +59,7 @@ if(isset($_POST['submit']))
     <div class="main">
 
         <section class="signup">
-            <!-- <img src="registration/images/signup-bg.jpg" alt=""> -->
+            <!-- <img src="registration/images/2.jpg" alt=""> -->
             <div class="container">
                 <div class="signup-content">
                     <form method="POST" action="" name="intro" id="signup-form" class="signup-form" onsubmit="return validateform()">
