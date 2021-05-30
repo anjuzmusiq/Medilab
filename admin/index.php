@@ -42,8 +42,49 @@
 include ("connect.php");
 include ("header.php");
 ?>
+<!-- ======= Why Us Section ======= -->
+<main id="main">
+  <section id="why-us" class="why-us">
+      <div class="container">
+      <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <h1 style="text-align:center">Admin,Welcome to Medilab</h1>      
+    </div>
+  </section><!-- End Hero -->
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="content">
+              <h3>Hi USER</h3>
+              <p>
+               <h2> We are ready to help!</h2>
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="content">
+              <h3>Hi NURSE</h3>
+              <p>
+              <h2>How can we help u!</h2>
+              </p>
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="content">
+              <h3>HI PATIENT</h3>
+              <p>
+              <h2>We are ready to help!<h2>
+              </p>
+              </p>
+            </div>
+          </div>
+          
+        </div>
 
-       
+      </div>
+    </section><!-- End Why Us Section -->
+    </main>
+<div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)">
 
   <!-- Vendor JS Files -->
   <script src="../assets/vendor/jquery/jquery.min.js"></script>

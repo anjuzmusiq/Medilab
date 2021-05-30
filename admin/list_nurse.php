@@ -1,3 +1,7 @@
+<?php
+include('connect.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,56 +39,54 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+<style>
+
+</style>
 </head>
 
 <body>
 <?php
-include ("connect.php");
 include ("header.php");
 ?>
- 
-  <!-- ======= Why Us Section ======= -->
-  <main id="main">
-  <section id="why-us" class="why-us">
+    <!-- ======= Doctors Section ======= -->
+    <section id="doctors" class="doctors" style="margin-top:100px;">
       <div class="container">
-      <section id="hero" class="d-flex align-items-center">
-    <div class="container">
-      <h1 style="text-align:center">NURSE,Welcome to Medilab</h1>      
-    </div>
-  </section><!-- End Hero -->
+
+        <div class="section-title">
+          <h2>All Nurses</h2>
+        </div>
+
         <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
-              <h3>HI NURSE</h3>
-              <p>
-               <h2> We are ready to help!</h2>
-              </p>
+<?php
+$sql1="SELECT * from nurse";
+$s1=mysqli_query($con,$sql1);
+while(($row=mysqli_fetch_array($s1))==TRUE)
+{?>
+          <div class="col-lg-6">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="../assets/img/doctors/avatar.png" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h3><?php echo $row['nname'];?></h3>
+                <span>Address:<?php echo $row['address']; ?></span>
+                <p>Email: <?php echo $row['email']; ?></p>
+                <p>Designation: <?php echo $row['designation']; ?></p>
+                <p>Experience: <?php echo $row['experience']; ?></p>
+                <p>Phone: <?php echo $row['phone']; ?></p>
+              </div>
             </div>
           </div>
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
-              <h3>HI NURSE</h3>
-              <p>
-              <h2>How can we help u!</h2>
-              </p>
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
-              <h3>HI NURSE</h3>
-              <p>
-              <h2>We are ready to help!<h2>
-              </p>
-              </p>
-            </div>
-          </div>
-          
+<?php
+}
+?>
+
+
         </div>
 
       </div>
-    </section><!-- End Why Us Section -->
-</main>
+    </section><!-- End Doctors Section -->
+    <!-- ======= Departments Section ======= -->
+
+
 
 <div id="preloader"></div>
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>

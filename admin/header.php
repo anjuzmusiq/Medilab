@@ -12,19 +12,19 @@
         
           <li class="drop-down"><a>User</a>
             <ul>
-            <li><a href="">User List</a></li>
+            <li><a href="list_user.php">User List</a></li>
             
             </ul>
           </li>
           <li class="drop-down"><a>Patient</a>
             <ul>
-            <li><a href="">Patient List</a></li>
+            <li><a href="list_patient.php">Patient List</a></li>
             
             </ul>
           </li>
           <li class="drop-down"><a>Nurse</a>
             <ul>
-            <li><a href="">Nurse Details</a></li>
+            <li><a href="list_nurse.php">Nurse Details</a></li>
           
             </ul>
           </li>

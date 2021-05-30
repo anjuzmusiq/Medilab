@@ -1,3 +1,33 @@
+<?php
+include('connect.php');
+if(isset($_POST['add']))
+{   $email=$_SESSION['email'];
+    $pname=$_POST['pname'];
+    $relation=$_POST['relation'];
+    $gender=$_POST['gender'];
+    $age=$_POST['age'];
+    $desc=$_POST['desc'];
+    $category=$_POST['category'];
+    $from=$_POST['from'];
+    $to=$_POST['to'];
+
+    $sql5="INSERT INTO `patient`(`cid`, `pname`, `relation`, `uemail`, `gender`, `age`, `desc`, `from`, `to`, `status`) VALUES ($category,'$pname','$relation','$email','$gender','$age','$desc','$from','$to',1)";
+    $result5=mysqli_query($con,$sql5);
+    if($result5==TRUE)
+    {
+    echo"<script>
+    alert('Patient Registration Successfull');
+    window.location='add_patient.php';
+    </script>";
+    }
+    else
+    {
+    echo"<script>alert('Patient Registation failed');
+    window.location='add_patient.php';
+    </script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,56 +65,55 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+<style>
+
+</style>
 </head>
 
 <body>
 <?php
-include ("connect.php");
 include ("header.php");
 ?>
- 
-  <!-- ======= Why Us Section ======= -->
-  <main id="main">
-  <section id="why-us" class="why-us">
+    <!-- ======= Doctors Section ======= -->
+    <section id="doctors" class="doctors" style="margin-top:100px;">
       <div class="container">
-      <section id="hero" class="d-flex align-items-center">
-    <div class="container">
-      <h1 style="text-align:center">NURSE,Welcome to Medilab</h1>      
-    </div>
-  </section><!-- End Hero -->
+
+        <div class="section-title">
+          <h2> Available Nurses</h2>
+        </div>
+
         <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
-              <h3>HI NURSE</h3>
-              <p>
-               <h2> We are ready to help!</h2>
-              </p>
+<?php
+$sql1="SELECT * from nurse where final_status=0 and status=1";
+$s1=mysqli_query($con,$sql1);
+while(($row=mysqli_fetch_array($s1))==TRUE)
+{?>
+          <div class="col-lg-6">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="../assets/img/doctors/avatar.png" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h3><?php echo $row['nname'];?></h3>
+                <p>Designation: <?php echo $row['designation']; ?></p>
+                <p>Email: <?php echo $row['email']; ?></p>
+                <p>Experience: <?php echo $row['experience']; ?></p>
+                <p>Phone: <?php echo $row['phone']; ?></p>
+                <p>Address:<?php echo $row['address']; ?></p>
+                <div class="text-center"><a href="request.php?nid=<?php echo $row['nid'];?>"><button type="button" class="btn appointment-btn scrollto mt-2" name="select">Select</button></div></a>
+              </div>
             </div>
           </div>
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
-              <h3>HI NURSE</h3>
-              <p>
-              <h2>How can we help u!</h2>
-              </p>
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
-              <h3>HI NURSE</h3>
-              <p>
-              <h2>We are ready to help!<h2>
-              </p>
-              </p>
-            </div>
-          </div>
-          
+<?php
+}
+?>
+
+
         </div>
 
       </div>
-    </section><!-- End Why Us Section -->
-</main>
+    </section><!-- End Doctors Section -->
+    <!-- ======= Departments Section ======= -->
+
+
 
 <div id="preloader"></div>
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>

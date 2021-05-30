@@ -6,10 +6,11 @@ if(isset($_POST['submit']))
     $address=$_POST['address'];
     $email=$_POST['email'];
     $password=$_POST['password'];
+    $age=$_POST['age'];
     $designation=$_POST['designation'];
     $experience=$_POST['experience'];
     $phone=$_POST['phone'];
-    $sql5="INSERT INTO `nurse`(`nname`, `address`, `email`, `password`, `designation`, `experience`, `phone`, `status`, `final_status`) VALUES ('$name','$address','$email','$password','$designation','$experience',$phone,1,0)";
+    $sql5="INSERT INTO `nurse`(`nname`, `address`, `email`, `password`,`age`, `designation`, `experience`, `phone`, `status`, `final_status`) VALUES ('$name','$address','$email','$password',$age,'$designation','$experience',$phone,1,0)";
     $result5=mysqli_query($con,$sql5);
     if($result5==TRUE)
     {
@@ -81,6 +82,10 @@ if(isset($_POST['submit']))
                             <input type="password" class="form-input" name="cpass" id="cpass" placeholder="Confirm password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : '');" required/>
                         </div>
                         <div class="form-group">
+                            <input type="number" class="form-input" name="age" id="age" placeholder="Your Age" maxlength="3" title="invalid age"required/>
+                        </div>
+                        <div class="form-group">
+                        
                             <input type="text" class="form-input" name="designation" id="designation" placeholder="Your Designation"required/>
                         </div>
                         <div class="form-group">

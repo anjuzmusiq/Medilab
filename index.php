@@ -54,7 +54,7 @@ include ("header.php");
       <div class="container">
 
         <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="col-lg-4 d-flex align-items-stretch" style="background-color:transparent">
             <div class="content">
               <h3>Why Choose Medilab?</h3>
               <p>

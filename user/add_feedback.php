@@ -1,31 +1,30 @@
 <?php
 include('connect.php');
 $email=$_SESSION['email'];
-$sql="select * from nurse where email='$email'";
-$result=mysqli_query($con,$sql);
-$row=mysqli_fetch_array($result);
-if(isset($_POST['update']))
+$sql1="SELECT * from user where email='$email'";
+$result1=mysqli_query($con,$sql1);
+$row1=mysqli_fetch_array($result1);
+$uid=$row1['uid'];
+if(isset($_POST['add']))
 {   
-    $name=$_POST['name'];
-    $address=$_POST['address'];
-    $email=$_POST['email'];
-    $age=$_POST['age'];
-    $designation=$_POST['designation'];
-    $experience=$_POST['experience'];
-    $phone=$_POST['phone'];
+    $nid=$_POST['nid'];
+    $pid=$_POST['pid'];
+    $feedback=$_POST['feedback'];
     
 
-    $sql5="UPDATE `nurse` SET `nname`='$name',`address`='$address',`email`='$email',`age`='$age',`designation`='$designation',`experience`='$experience',`phone`='$phone' WHERE email='$email'";
+    $sql5="INSERT INTO `user_feedback`(`pid`, `uid`, `nid`, `comment`) VALUES ($pid,$uid,$nid,'$feedback')";
     $result5=mysqli_query($con,$sql5);
     if($result5==TRUE)
     {
     echo"<script>
-    alert('Update Successfull');
+    alert('Patient Registration Successfull');
+    window.location='add_patient.php';
     </script>";
     }
     else
     {
-    echo"<script>alert('Update failed');
+    echo"<script>alert('Patient Registation failed');
+    window.location='add_patient.php';
     </script>";
     }
 }
@@ -78,51 +77,55 @@ include ("header.php");
 ?>
                     <!-- ======= Appointment Section ======= -->
     <section id="hero" class="appointment section-bg" >
-      <div class="container bg-white" style="margin-top:160px;margin-bottom:48px;padding:20px;">
+      <div class="container bg-white" style="margin-top:100px;padding:20px;">
 
         <div class="section-title">
-          <h2>My Profile</h2>
+          <h2>Patient Registration</h2>
         </div>
 
         <form action="" method="post" role="form">
-        <div class="form-row">
-            <div class="col-md-6 form-group">
-            <label> Name</label>
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" value="<?php echo $row['nname']; ?>" required>
-            </div>
-            <div class="col-md-6 form-group">
-            <label>Email</label>
-              <input type="email" name="email" class="form-control" id="email" placeholder="Your email" value="<?php echo $row['email']; ?>"required>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-6 form-group">
-            <label> Phone</label>
-              <input type="text" name="phone" class="form-control" id="phone" placeholder="Your Number" value="<?php echo $row['phone']; ?>" required>
-            </div>
-            <div class="col-md-6 form-group">
-            <label> Designation</label>
-              <input type="text" name="designation" class="form-control" id="designation" placeholder="Your Designation" value="<?php echo $row['designation']; ?>" required>
-            </div>
-        </div>
-        <div class="form-row">
-          <div class="col-md-6 form-group">
-            <label>Age</label>
-              <input type="number" name="age" class="form-control" id="age" placeholder="Your Age" value="<?php echo $row['age']; ?>" maxlength="3" required>
-            </div>
-          <div class="col-md-6 form-group">
-            <label>Experience</label>
-              <input type="text" name="experience" class="form-control" id="experience" placeholder="Your Experience" value="<?php echo $row['experience']; ?>" required>
-          </div>
-        </div>
-        <div class="form-row">
+        
+          
+          <div class="form-row">
             <div class="col-md-12 form-group">
-            <label> Address</label>
-              <input type="text" name="address" class="form-control" id="address" placeholder="Your address" value="<?php echo $row['address']; ?>" required>
+                <select name="nid" id="nid" class="form-control"required>
+                    <option value="">Nurse Name</option>
+<?php
+
+$sql2="SELECT * from allocate,nurse where allocate.nid=nurse.nid and allocate.uid=$uid";
+$result2=mysqli_query($con,$sql2);
+while(($row2=mysqli_fetch_array($result2))==TRUE)
+{?>
+                    <option value="<?php echo $row2['nid'];?>"><?php echo $row2['nname'];?></option>
+<?php
+}
+?>
+                </select>
             </div>
          </div>
-
-          <div class="text-center"><button class="btn appointment-btn scrollto" type="submit" name="update">Update</button></div>
+         <div class="form-row">
+            <div class="col-md-12 form-group">
+                <select name="pid" id="pid" class="form-control"required>
+                    <option value="">Patient Name</option>
+<?php
+$sql3="SELECT * from allocate,patient where allocate.pid=patient.pid and allocate.uid=$uid";
+$result3=mysqli_query($con,$sql3);
+while(($row3=mysqli_fetch_array($result3))==TRUE)
+{?>
+                    <option value="<?php echo $row3['pid'];?>"><?php echo $row3['pname'];?></option>
+<?php
+}
+?>
+                </select>
+            </div>
+         </div>
+            <div class="form-row">
+                <div class="col-md-12 form-group">
+                <textarea rows="5" cols="20" name="feedback" class="form-control" id="feedback" placeholder="Enter Your Feedback" required></textarea>
+                </div>
+            </div>
+            
+          <div class="text-center"><button class="btn appointment-btn scrollto" type="submit" name="add">Add</button></div>
         </form>
 
       </div>

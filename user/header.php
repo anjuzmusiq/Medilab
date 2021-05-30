@@ -20,13 +20,13 @@
           </li>
           <li class="drop-down"><a>Nurse</a>
             <ul>
-            <li><a href="">List All Nurses</a></li>
-            <li><a href="">Selected Nurses</a></li>
+            <li><a href="nurse_list.php">List All Nurses</a></li>
+            <li><a href="selected_nurses.php">Selected Nurses</a></li>
             </ul>
           </li>
           <li class="drop-down"><a>Feedback</a>
             <ul>
-            <li><a href="">Add Feedback</a></li>
+            <li><a href="add_feedback.php">Add Feedback</a></li>
             <li><a href="">List Feedback</a></li>
             
       

@@ -44,7 +44,48 @@ include ("header.php");
 ?>
 
 
+<!-- ======= Why Us Section ======= -->
+<main id="main">
+  <section id="why-us" class="why-us">
+      <div class="container">
+      <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <h1 style="text-align:center">User,Welcome to Medilab</h1>      
+    </div>
+  </section><!-- End Hero -->
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="content">
+              <h3>HI USER</h3>
+              <p>
+               <h2> We are ready to help!</h2>
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="content">
+              <h3>HI USER</h3>
+              <p>
+              <h2>How can we help u!</h2>
+              </p>
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="content">
+              <h3>HI USER</h3>
+              <p>
+              <h2>We are ready to help!<h2>
+              </p>
+              </p>
+            </div>
+          </div>
+          
+        </div>
 
+      </div>
+    </section><!-- End Why Us Section -->
+    </main>
 <div id="preloader"></div>
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
