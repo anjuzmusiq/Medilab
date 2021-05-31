@@ -7,7 +7,7 @@ $password=$_POST['password'];
 	
 	$sql="select * from nurse where email='$email' and password='$password' and status=1";
 	$result=mysqli_query($con,$sql);
-	if($result==TRUE)
+	if(mysqli_num_rows($result)>0)
 	{
 		$_SESSION['email']=$email;
 		?>

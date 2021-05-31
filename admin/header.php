@@ -8,8 +8,9 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="index.php">Home</a></li>
         
+          <li><a href="index.php">Home</a></li>
+         
           <li class="drop-down"><a>User</a>
             <ul>
             <li><a href="list_user.php">User List</a></li>
@@ -31,25 +32,49 @@
           <li class="drop-down"><a>Feedback</a>
             <ul>
           
-            <li><a href="">User</a></li>
-            <li><a href="">Nurse</a></li>
+            <li><a href="user_feedback.php">User</a></li>
+            <li><a href="nurse_feedback.php">Nurse</a></li>
             </ul>
           </li>
-          <li class="drop-down"><a>Report</a>
+          <li class="drop-down"><a href="">Report</a>
             <ul>
-            
-            <li><a href="">User</a></li>
-            <li><a href="">Nurse</a></li>
+              
+              <li class="drop-down"><a href="#">User</a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li class="drop-down"><a href="#">Patient</a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li class="drop-down"><a href="#">Nurse</a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+
             </ul>
           </li>
-          <li class="drop-down"><a>Admin</a>
-            <ul>
+          <li><a href="add_category.php">Add category</a></li>
             
             <li><a href="change_password.php">Change Password</a></li>
             
-            </ul>
-            </li>
-          <li><a href="add_category.php">Add category</a></li>
+           
+          
 
         </ul>
       </nav><!-- .nav-menu -->

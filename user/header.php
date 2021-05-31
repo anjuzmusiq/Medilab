@@ -14,8 +14,8 @@
           <li class="drop-down"><a>Patient</a>
             <ul>
             <li><a href="add_patient.php">Add Patient</a></li>
-            <li><a href="">View Patient</a></li>
-            <li><a href="">Edit Patient</a></li>
+            <li><a href="view_patient.php">View Patient</a></li>
+            <li><a href="delete_patient.php">Delete Patient</a></li>
             </ul>
           </li>
           <li class="drop-down"><a>Nurse</a>
@@ -27,7 +27,7 @@
           <li class="drop-down"><a>Feedback</a>
             <ul>
             <li><a href="add_feedback.php">Add Feedback</a></li>
-            <li><a href="">List Feedback</a></li>
+            <li><a href="view_feedback.php">List Feedback</a></li>
             
       
           </ul>

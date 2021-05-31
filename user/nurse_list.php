@@ -1,32 +1,5 @@
 <?php
 include('connect.php');
-if(isset($_POST['add']))
-{   $email=$_SESSION['email'];
-    $pname=$_POST['pname'];
-    $relation=$_POST['relation'];
-    $gender=$_POST['gender'];
-    $age=$_POST['age'];
-    $desc=$_POST['desc'];
-    $category=$_POST['category'];
-    $from=$_POST['from'];
-    $to=$_POST['to'];
-
-    $sql5="INSERT INTO `patient`(`cid`, `pname`, `relation`, `uemail`, `gender`, `age`, `desc`, `from`, `to`, `status`) VALUES ($category,'$pname','$relation','$email','$gender','$age','$desc','$from','$to',1)";
-    $result5=mysqli_query($con,$sql5);
-    if($result5==TRUE)
-    {
-    echo"<script>
-    alert('Patient Registration Successfull');
-    window.location='add_patient.php';
-    </script>";
-    }
-    else
-    {
-    echo"<script>alert('Patient Registation failed');
-    window.location='add_patient.php';
-    </script>";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

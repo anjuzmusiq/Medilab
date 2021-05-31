@@ -68,7 +68,7 @@ include ("header.php");
 ?>
                     <!-- ======= Appointment Section ======= -->
     <section id="hero" class="appointment section-bg" >
-      <div class="container bg-white" style="margin-top:170px;padding:20px;">
+      <div class="container bg-white" style="margin-top:215px;margin-bottom:198px;padding:20px;">
 
         <div class="section-title">
           <h2>Add Category</h2>

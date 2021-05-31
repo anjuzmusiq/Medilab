@@ -21,11 +21,13 @@ if(isset($_POST['update']))
     {
     echo"<script>
     alert('Update Successfull');
+    window.location='profile.php';
     </script>";
     }
     else
     {
     echo"<script>alert('Update failed');
+    window.location='profile.php';
     </script>";
     }
 }

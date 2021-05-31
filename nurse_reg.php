@@ -98,6 +98,7 @@ if(isset($_POST['submit']))
                             <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
                         </div>
                     </form>
+                    <a href="index.php"><p style="margin-left:450px;">Cancel</p></a>
                     <p class="loginhere">
                         Have already an account ? <a href="nurse_login.php" class="loginhere-link">Login here</a>
                     </p>

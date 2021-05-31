@@ -10,21 +10,19 @@ if(isset($_POST['add']))
     $nid=$_POST['nid'];
     $pid=$_POST['pid'];
     $feedback=$_POST['feedback'];
-    
-
     $sql5="INSERT INTO `user_feedback`(`pid`, `uid`, `nid`, `comment`) VALUES ($pid,$uid,$nid,'$feedback')";
     $result5=mysqli_query($con,$sql5);
     if($result5==TRUE)
     {
     echo"<script>
-    alert('Patient Registration Successfull');
-    window.location='add_patient.php';
+    alert('Feedback sent Successfull');
+    window.location='add_feedback.php';
     </script>";
     }
     else
     {
-    echo"<script>alert('Patient Registation failed');
-    window.location='add_patient.php';
+    echo"<script>alert('Feedback sent Failed');
+    window.location='add_feedback.php';
     </script>";
     }
 }
@@ -77,10 +75,10 @@ include ("header.php");
 ?>
                     <!-- ======= Appointment Section ======= -->
     <section id="hero" class="appointment section-bg" >
-      <div class="container bg-white" style="margin-top:100px;padding:20px;">
+      <div class="container bg-white" style="margin-top:170px;margin-bottom:37px;padding:20px;">
 
         <div class="section-title">
-          <h2>Patient Registration</h2>
+          <h2>FEEDBACK</h2>
         </div>
 
         <form action="" method="post" role="form">
@@ -92,7 +90,7 @@ include ("header.php");
                     <option value="">Nurse Name</option>
 <?php
 
-$sql2="SELECT * from allocate,nurse where allocate.nid=nurse.nid and allocate.uid=$uid";
+$sql2="SELECT * from allocate,nurse where allocate.nid=nurse.nid and allocate.uid=1 and nurse.status=1 and nurse.final_status=1";
 $result2=mysqli_query($con,$sql2);
 while(($row2=mysqli_fetch_array($result2))==TRUE)
 {?>
@@ -108,7 +106,7 @@ while(($row2=mysqli_fetch_array($result2))==TRUE)
                 <select name="pid" id="pid" class="form-control"required>
                     <option value="">Patient Name</option>
 <?php
-$sql3="SELECT * from allocate,patient where allocate.pid=patient.pid and allocate.uid=$uid";
+$sql3="SELECT * from allocate,patient where allocate.pid=patient.pid and allocate.uid=$uid and patient.status=1 and  patient.final_status=1";
 $result3=mysqli_query($con,$sql3);
 while(($row3=mysqli_fetch_array($result3))==TRUE)
 {?>

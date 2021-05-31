@@ -8,7 +8,7 @@ $nid = $_GET['nid'];
         $result=mysqli_query($con,$sql);
         $row=mysqli_fetch_array($result);
         $uid=$row['uid'];
-        $sql1="SELECT * from patient where uid=$uid";
+        $sql1="SELECT * from patient where uid=$uid and status=1";
         $result1=mysqli_query($con,$sql1);
         $row1=mysqli_fetch_array($result1);
         if(mysqli_num_rows($result1)<1)

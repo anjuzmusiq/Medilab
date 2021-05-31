@@ -1,41 +1,38 @@
 <?php
 include('connect.php');
 $email=$_SESSION['email'];
-$sql="SELECT * from user where email='$email'";
+$sql="select * from patient p,category c where c.catid=p.catid and p.uemail='$email' and p.status=1 and p.final_status=0";
 $result=mysqli_query($con,$sql);
 $row=mysqli_fetch_array($result);
-$uid=$row['uid'];
-$sql1="SELECT * from patient where uid=$uid and status=1 and final_status=0";
-$s1=mysqli_query($con,$sql1);
-if(mysqli_num_rows($s1)<1)
+if(mysqli_num_rows($result)>0)
 {
-    if(isset($_POST['add']))
-    {   $email=$_SESSION['email'];
-        $pname=$_POST['pname'];
-        $relation=$_POST['relation'];
-        $gender=$_POST['gender'];
-        $age=$_POST['age'];
-        $desc=$_POST['desc'];
-        $category=$_POST['category'];
-        $from=$_POST['from'];
-        $to=$_POST['to'];
+if(isset($_POST['update']))
+{   
+    $pname=$_POST['pname'];
+ 
+    $gender=$_POST['gender'];
+    $age=$_POST['age'];
+    $desc=$_POST['desc'];
+    $from=$_POST['from'];
+    $to=$_POST['to'];    
+    $category=$_POST['category'];
+    
 
-        $sql5="INSERT INTO `patient`(`uid`, `catid`, `pname`, `relation`, `uemail`, `gender`, `age`, `desc`, `from`, `to`, `status`) VALUES ($uid,$category,'$pname','$relation','$email','$gender',$age,'$desc','$from','$to',1)";
-        $result5=mysqli_query($con,$sql5);
-        if($result5==TRUE)
-        {
-        echo"<script>
-        alert('Patient Registration Successfull');
-        window.location='add_patient.php';
-        </script>";
-        }
-        else
-        {
-        echo"<script>alert('Patient Registration Failed');
-        window.location='add_patient.php';
-        </script>";
-        }
+    $sql5="UPDATE `patient` SET `pname`='$pname',`gender`='$gender',`age`='$age',`catid`='$category',`desc`='$desc',`from`='$from',`to`='$to' WHERE uemail='$email'";
+    $result5=mysqli_query($con,$sql5);
+    if($result5==TRUE)
+    {
+    echo"<script>alert('Patient Updated Successfull');
+    window.location='view_patient.php';
+    </script>";
     }
+    else
+    {
+    echo"<script>alert('Patient Updated Failed');
+    window.location='view_patient.php';
+    </script>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,19 +74,6 @@ if(mysqli_num_rows($s1)<1)
 <style>
 
 </style>
-<script>
-function validateDate() {
-var GivenDate = document.getElementById("from").value;
-var CurrentDate = new Date();
-GivenDate = new Date(GivenDate);
-
-if(GivenDate <= CurrentDate){
-    alert('Given date is less than or equal to the current date.');
-}else{
-    return true;
-}
-}
-</script>
 </head>
 
 <body>
@@ -98,77 +82,75 @@ include ("header.php");
 ?>
                     <!-- ======= Appointment Section ======= -->
     <section id="hero" class="appointment section-bg" >
-      <div class="container bg-white" style="margin-top:100px;padding:20px;">
+      <div class="container bg-white" style="margin-top:160px;margin-bottom:48px;padding:20px;">
 
         <div class="section-title">
-          <h2>Patient Registration</h2>
+          <h2>Patient Profile</h2>
         </div>
 
-        <form action="" method="post" name="intro" role="form" onsubmit()="return validateDate()">
+        <form action="" method="post" role="form">
         <div class="form-row">
             <div class="col-md-6 form-group">
-              <input type="text" name="pname" class="form-control" id="pname" placeholder="Patient Name" required>
+            <label> Name</label>
+              <input type="text" name="pname" class="form-control" id="pname" placeholder="Your Name" value="<?php echo $row['pname']; ?>" required>
             </div>
             <div class="col-md-6 form-group">
-              <input type="number" name="age" class="form-control" id="age" placeholder="Age"maxlength="3" required>
+            <label>Relation</label>
+              <input type="text" name="relation" class="form-control bg-white" id="relation" placeholder="Your Relation" value="<?php echo $row['relation']; ?>" disabled required>
             </div>
-            
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+            <label> Gender</label>
+            <select name="gender" class="form-control" id="exampleFormControlSelect1">
+                                                        <?php
+                                                            if ($row['gender'] == Male) $genderFlag = 0;
+                                                                else if ($row['gender'] == Female) $genderFlag = 1;
+                                                        ?>
+                                                        <option value="Male"<?php if ($genderFlag == 0) echo "selected" ?>> Male</option>
+                                                        <option value="Female"<?php if ($genderFlag == 1) echo "selected" ?>> Female</option>
+            </select>
+            </div>
+            <div class="col-md-6 form-group">
+            <label> Age</label>
+              <input type="number" name="age" class="form-control" id="age" placeholder="Your Age" value="<?php echo $row['age']; ?>" maxlength="3" required>
+            </div>
+        </div>
+        <div class="form-row">
+      <div class="col-md-6 form-group">
+            <label>From</label>
+              <input type="date" name="from" class="form-control" id="from" placeholder=" From" value="<?php echo $row['from']; ?>" required>
           </div>
-          <div class="form-row">
           <div class="col-md-6 form-group">
-              <select name="relation" id="Relation" class="form-control"required>
-                <option value="">Relation</option>
-                <option value="Father">Father</option>
-                <option value="Mother">Mother</option>
-                <option value="Brother">Brother</option>
-                <option value="Sister">Sister</option>
-                <option value="Grand Father">Grand Father</option>
-                <option value="Grand Mother">Grand Mother</option>
-                <option value="Cousin">Cousin</option>
-                <option value="Friend">Friend</option>
-              </select>
-            </div>
-            <div class="col-md-6 form-group">
-              <select name="gender" id="gender" class="form-control"required>
-                <option value="">Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="col-md-12 form-group">
-                <select name="category" id="category" class="form-control"required>
-                    <option value="">Category</option>
+            <label> To</label>
+              <input type="date" name="to" class="form-control" id="to" placeholder="To" value="<?php echo $row['to']; ?>" required>
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="col-md-12 form-group">
+        <label> Category</label>
+        <select class="form-control" name="category" id="formGroupDefaultSelect" aria-describedby="emailHelp"required>
 <?php
-$sql="SELECT * from category";
-$result=mysqli_query($con,$sql);
-while(($row=mysqli_fetch_array($result))==TRUE)
-{?>
-                    <option value="<?php echo $row['catid'];?>"><?php echo $row['catname'];?></option>
+$sql4="SELECT * from category where status=1";
+$s4=mysqli_query($con,$sql4);
+while(($row4=mysqli_fetch_array($s4))==TRUE)
+{?>	
+													<option value="<?php echo $row4['catid'];?>"<?php if($row4['catname']==$row['catname']) echo "selected" ?>><?php echo $row4['catname'];?></option>
 <?php
 }
 ?>
-                </select>
+												</select>
+                </div>
             </div>
+        <div class="form-row">
+        <div class="col-md-12 form-group">
+            <label>Description</label>
+              <input type="text" name="desc" class="form-control" id="desc" placeholder="Your Description" value="<?php echo $row['desc']; ?>" required>
+            </div>
+            
          </div>
-            <div class="form-row">
-                <div class="col-md-12 form-group">
-                <textarea rows="5" cols="20" name="desc" class="form-control" id="desc" placeholder="Description" required></textarea>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-md-6 form-group">
-                <label>Duration from</label>
-              
-                <input type="date" name="from" class="form-control" id="from" min="2021-05-31"placeholder="Duration From" required>
-                </div>
-                <div class="col-md-6 form-group">
-                <label>Duration To</label>
-                <input type="date" name="to" class="form-control" id="to" min="2021-05-31"placeholder="Duration To" required>
-                </div>
-          </div>
-          <div class="text-center"><button class="btn appointment-btn scrollto" type="submit" name="add">Add</button></div>
+
+          <div class="text-center"><button class="btn appointment-btn scrollto" type="submit" name="update">Update</button></div>
         </form>
 
       </div>
@@ -200,9 +182,8 @@ while(($row=mysqli_fetch_array($result))==TRUE)
 </html>
 <?php
 }
-else
-{
-  ?>
+else{
+?>
 <!DOCTYPE html>
   <html lang="en">
   
@@ -258,7 +239,7 @@ else
           </div>
   
           <form action="" method="post" role="form">
-          <h2 class="text-center">You have already added a patient!!!</h2>
+          <h2 class="text-center">No Patient added!!</h2>
           </form>
   
         </div>
@@ -289,5 +270,5 @@ else
   
   </html>
 <?php
-}
+} 
 ?>

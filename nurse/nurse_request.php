@@ -79,17 +79,17 @@ include ("header.php");
       <div class="container">
 
         <div class="section-title">
-          <h2>Selected Nurses</h2>
+          <h2>Patient's Requested</h2>
         </div>
 
         <div class="row">
 <?php
 $email=$_SESSION['email'];
-$sql="SELECT * from user where email='$email'";
+$sql="SELECT * from nurse where email='$email'";
 $result=mysqli_query($con,$sql);
-$row=mysqli_fetch_array($result);
-$uid=$row['uid'];
-$sql1="SELECT * from allocate a,nurse n,patient p where a.nid=n.nid and p.pid=a.pid and a.uid=$uid and a.status!=3 and p.status=1;";
+$row1=mysqli_fetch_array($result);
+$nid=$row1['nid'];
+$sql1="SELECT * from allocate a,patient p,user u where a.pid=p.pid and a.uid=u.uid and p.status=1 and nid=$nid and a.status!=4;";
 $s1=mysqli_query($con,$sql1);
 while(($row=mysqli_fetch_array($s1))==TRUE)
 {?>
@@ -97,16 +97,21 @@ while(($row=mysqli_fetch_array($s1))==TRUE)
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="../assets/img/doctors/avatar.png" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h3><?php echo $row['nname'];?></h3>
-                <span>Address:<?php echo $row['address']; ?></span>
-                <p>Email: <?php echo $row['email']; ?></p>
-                <p>Designation: <?php echo $row['designation']; ?></p>
-                <p>Experience: <?php echo $row['experience']; ?></p>
+                <h3>User name: <?php echo $row['uname'];?></h3>
+                <span>Email: <?php echo $row['email']; ?></span>
                 <p>Phone: <?php echo $row['phone']; ?></p>
-                <p>Salary: <?php echo $row['salary']; ?></p>
-                <p class="text-danger">Status: <?php if($row[5]==0)echo"Request Sent"; else if($row[5]==1)echo"Request Accepted By Nurse"; else if($row[5]==2)echo"Selected"; else if($row[5]==3) echo"Rejected by you"; else if($row[5]==4) echo"Rejected by Nurse"?></p>
-                <?php if($row[5]==1){ ?><div class="text-center"><a href="select.php?nid=<?php echo $row['nid'];?>"><button type="button" class="btn appointment-btn mt-4" name="select">&nbsp;&nbsp;Select&nbsp;&nbsp;</button></a>
-                <a href="decline.php?nid=<?php echo $row['nid'];?>"><button type="button" class="btn bg-danger appointment-btn scrollto mt-4" name="decline">Decline</button></div></a><?php } ?>
+                <p>Location: <?php echo $row['location']; ?></p>
+                <p>Address:<?php echo $row['address']; ?></p><br>
+                <h3>Patient name: <?php echo $row['pname'];?></h3>
+                <p>Relation: <?php echo $row['relation']; ?></p>
+                <p>Phone: <?php echo $row['gender']; ?></p>
+                <p>Age: <?php echo $row['age']; ?></p>
+                <p>Description: <?php echo $row['desc']; ?></p> 
+                <p>From: <?php echo $row['from']; ?></p>
+                <p>To: <?php echo $row['to']; ?></p>
+                <p class="text-danger">Status: <?php if($row[5]==0)echo"Request Sent by User"; else if($row[5]==1)echo"Request Accepted and Salary sent"; else if($row[5]==2)echo"You are Accepted"; else if($row[5]==3) echo"Rejected by user"; else if($row[5]==4) echo"Rejected by You"?></p>
+                <?php if($row[5]==0) {?><div class="text-center"><a href="salary.php?pid=<?php echo $row['pid'];?>"><button type="button" class="btn appointment-btn mt-4" name="select">Accept</button></a><?php } ?>
+                <?php if($row[5]==0) {?><a href="decline.php?pid=<?php echo $row['pid'];?>"><button type="button" class="btn bg-danger appointment-btn mt-4 ml-2" name="decline">Decline</button></a><?php } ?></div>
               </div>
             </div>
           </div>

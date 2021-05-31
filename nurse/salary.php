@@ -1,29 +1,36 @@
 <?php
 include('connect.php');
-if(isset($_POST['add']))
-{   $email=$_SESSION['email'];
-    $pname=$_POST['pname'];
-    $relation=$_POST['relation'];
-    $gender=$_POST['gender'];
-    $age=$_POST['age'];
-    $desc=$_POST['desc'];
-    $category=$_POST['category'];
-    $from=$_POST['from'];
-    $to=$_POST['to'];
-
-    $sql5="INSERT INTO `patient`(`cid`, `pname`, `relation`, `uemail`, `gender`, `age`, `desc`, `from`, `to`, `status`) VALUES ($category,'$pname','$relation','$email','$gender','$age','$desc','$from','$to',1)";
+$email=$_SESSION['email'];
+$pid=$_GET['pid'];
+    $sql="select * from nurse where email='$email'";
+    $result=mysqli_query($con,$sql);
+    $row=mysqli_fetch_array($result);
+    $nid=$row['nid'];
+    $sql2="select * from allocate where nid='$nid' and pid=$pid and salary IS NOT NULL";
+    $result2=mysqli_query($con,$sql2);
+    if(mysqli_num_rows($result2)>0)
+    {
+        echo"<script>
+        window.location='nurse_request.php';
+        alert('Salary already sent!!');
+        </script>";
+        }
+if(isset($_POST['submit']))
+{
+    $salary=$_POST['salary'];
+    $sql5="UPDATE `allocate` SET `salary`='$salary', `status`=1 WHERE pid='$pid' and nid=$nid";
     $result5=mysqli_query($con,$sql5);
     if($result5==TRUE)
     {
     echo"<script>
-    alert('Patient Registration Successfull');
-    window.location='add_patient.php';
+    window.location='nurse_request.php';
+    alert('Salary sent Successfully');
     </script>";
     }
     else
     {
-    echo"<script>alert('Patient Registation failed');
-    window.location='add_patient.php';
+    echo"<script>alert('Salary sending Failed');
+    window.location='salary.php';
     </script>";
     }
 }
@@ -74,51 +81,28 @@ if(isset($_POST['add']))
 <?php
 include ("header.php");
 ?>
-    <!-- ======= Doctors Section ======= -->
-    <section id="doctors" class="doctors" style="margin-top:100px;">
-      <div class="container">
+                    <!-- ======= Appointment Section ======= -->
+    <section id="hero" class="appointment section-bg" >
+      <div class="container bg-white"  style="margin-top:210px;margin-bottom:200px;padding:20px;">
 
         <div class="section-title">
-          <h2>Selected Nurses</h2>
+          <h2>Expected Salary</h2>
         </div>
 
-        <div class="row">
-<?php
-$email=$_SESSION['email'];
-$sql="SELECT * from user where email='$email'";
-$result=mysqli_query($con,$sql);
-$row=mysqli_fetch_array($result);
-$uid=$row['uid'];
-$sql1="SELECT * from allocate a,nurse n,patient p where a.nid=n.nid and p.pid=a.pid and a.uid=$uid and a.status!=3 and p.status=1;";
-$s1=mysqli_query($con,$sql1);
-while(($row=mysqli_fetch_array($s1))==TRUE)
-{?>
-          <div class="col-lg-6">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="../assets/img/doctors/avatar.png" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h3><?php echo $row['nname'];?></h3>
-                <span>Address:<?php echo $row['address']; ?></span>
-                <p>Email: <?php echo $row['email']; ?></p>
-                <p>Designation: <?php echo $row['designation']; ?></p>
-                <p>Experience: <?php echo $row['experience']; ?></p>
-                <p>Phone: <?php echo $row['phone']; ?></p>
-                <p>Salary: <?php echo $row['salary']; ?></p>
-                <p class="text-danger">Status: <?php if($row[5]==0)echo"Request Sent"; else if($row[5]==1)echo"Request Accepted By Nurse"; else if($row[5]==2)echo"Selected"; else if($row[5]==3) echo"Rejected by you"; else if($row[5]==4) echo"Rejected by Nurse"?></p>
-                <?php if($row[5]==1){ ?><div class="text-center"><a href="select.php?nid=<?php echo $row['nid'];?>"><button type="button" class="btn appointment-btn mt-4" name="select">&nbsp;&nbsp;Select&nbsp;&nbsp;</button></a>
-                <a href="decline.php?nid=<?php echo $row['nid'];?>"><button type="button" class="btn bg-danger appointment-btn scrollto mt-4" name="decline">Decline</button></div></a><?php } ?>
-              </div>
+        <form action="" method="post" role="form">
+          <div class="form-row">
+              <div class="col-md-4"></div>
+            <div class="col-md-4 form-group">
+              <input type="number" name="salary" class="form-control" id="salary" placeholder="Expected Salary">
             </div>
+            <div class="col-md-4"></div>
           </div>
-<?php
-}
-?>
-
-
-        </div>
+          <div class="text-center"><button class="btn appointment-btn scrollto" type="submit" name="submit">Submit</button></div>
+        </form>
 
       </div>
-    </section><!-- End Doctors Section -->
+    </section><!-- End Appointment Section -->
+
     <!-- ======= Departments Section ======= -->
 
 

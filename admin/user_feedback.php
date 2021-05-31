@@ -1,32 +1,5 @@
 <?php
 include('connect.php');
-if(isset($_POST['add']))
-{   $email=$_SESSION['email'];
-    $pname=$_POST['pname'];
-    $relation=$_POST['relation'];
-    $gender=$_POST['gender'];
-    $age=$_POST['age'];
-    $desc=$_POST['desc'];
-    $category=$_POST['category'];
-    $from=$_POST['from'];
-    $to=$_POST['to'];
-
-    $sql5="INSERT INTO `patient`(`cid`, `pname`, `relation`, `uemail`, `gender`, `age`, `desc`, `from`, `to`, `status`) VALUES ($category,'$pname','$relation','$email','$gender','$age','$desc','$from','$to',1)";
-    $result5=mysqli_query($con,$sql5);
-    if($result5==TRUE)
-    {
-    echo"<script>
-    alert('Patient Registration Successfull');
-    window.location='add_patient.php';
-    </script>";
-    }
-    else
-    {
-    echo"<script>alert('Patient Registation failed');
-    window.location='add_patient.php';
-    </script>";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,9 +50,8 @@ include ("header.php");
     <!-- ======= Doctors Section ======= -->
     <section id="doctors" class="doctors" style="margin-top:100px;">
       <div class="container">
-
         <div class="section-title">
-          <h2>Selected Nurses</h2>
+          <h2>User Feedback</h2>
         </div>
 
         <div class="row">
@@ -89,7 +61,7 @@ $sql="SELECT * from user where email='$email'";
 $result=mysqli_query($con,$sql);
 $row=mysqli_fetch_array($result);
 $uid=$row['uid'];
-$sql1="SELECT * from allocate a,nurse n,patient p where a.nid=n.nid and p.pid=a.pid and a.uid=$uid and a.status!=3 and p.status=1;";
+$sql1="SELECT * from user_feedback f,patient p,nurse n where f.nid=n.nid and f.pid=p.pid;";
 $s1=mysqli_query($con,$sql1);
 while(($row=mysqli_fetch_array($s1))==TRUE)
 {?>
@@ -98,15 +70,10 @@ while(($row=mysqli_fetch_array($s1))==TRUE)
               <div class="pic"><img src="../assets/img/doctors/avatar.png" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h3><?php echo $row['nname'];?></h3>
-                <span>Address:<?php echo $row['address']; ?></span>
-                <p>Email: <?php echo $row['email']; ?></p>
-                <p>Designation: <?php echo $row['designation']; ?></p>
-                <p>Experience: <?php echo $row['experience']; ?></p>
-                <p>Phone: <?php echo $row['phone']; ?></p>
-                <p>Salary: <?php echo $row['salary']; ?></p>
-                <p class="text-danger">Status: <?php if($row[5]==0)echo"Request Sent"; else if($row[5]==1)echo"Request Accepted By Nurse"; else if($row[5]==2)echo"Selected"; else if($row[5]==3) echo"Rejected by you"; else if($row[5]==4) echo"Rejected by Nurse"?></p>
-                <?php if($row[5]==1){ ?><div class="text-center"><a href="select.php?nid=<?php echo $row['nid'];?>"><button type="button" class="btn appointment-btn mt-4" name="select">&nbsp;&nbsp;Select&nbsp;&nbsp;</button></a>
-                <a href="decline.php?nid=<?php echo $row['nid'];?>"><button type="button" class="btn bg-danger appointment-btn scrollto mt-4" name="decline">Decline</button></div></a><?php } ?>
+                <span></span>
+                <p>Patient Name:<?php echo $row['pname']; ?></p>
+                <p>Nurse Name: <?php echo $row['nname']; ?></p>
+                <p>Feedback: <?php echo $row['comment']; ?></p>
               </div>
             </div>
           </div>

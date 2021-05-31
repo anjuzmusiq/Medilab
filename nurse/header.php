@@ -12,14 +12,14 @@
       
           <li class="drop-down"><a>Patient</a>
             <ul>
-            <li><a href="list_request.php">List Request</a></li>
+            <li><a href="nurse_request.php">Patient Request</a></li>
             
             </ul>
           </li>
           <li class="drop-down"><a>Feedback</a>
             <ul>
             <li><a href="add_feedback.php">Add Feedback</a></li>
-            <li><a href="">List Feedback</a></li>
+            <li><a href="view_feedback.php">List Feedback</a></li>
 
             </ul>
           </li>
