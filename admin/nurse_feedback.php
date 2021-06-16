@@ -52,7 +52,7 @@ include ("header.php");
       <div class="container">
 
         <div class="section-title">
-          <h2>Nurse Feedback</h2>
+          <h2>Feedback by Nurse</h2>
         </div>
 
         <div class="row">
@@ -62,7 +62,7 @@ $sql="SELECT * from nurse";
 $result=mysqli_query($con,$sql);
 $row=mysqli_fetch_array($result);
 $nid=$row['nid'];
-$sql1="SELECT * from user_feedback f,patient p,nurse n where f.nid=n.nid and f.pid=p.pid and f.nid=$nid;";
+$sql1="SELECT * from nurse_feedback f,patient p,nurse n, user u where f.uid=u.uid and f.nid=n.nid and f.pid=p.pid and f.nid=$nid;";
 $s1=mysqli_query($con,$sql1);
 while(($row=mysqli_fetch_array($s1))==TRUE)
 {?>
@@ -70,8 +70,10 @@ while(($row=mysqli_fetch_array($s1))==TRUE)
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="../assets/img/doctors/avatar.png" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h3>Patient Name:<?php echo $row['nname'];?></h3>
+                <h3>Patient Name:<?php echo $row['pname'];?></h3>
                 <span></span><br>
+                <h5>User: <?php echo $row['uname']; ?></h5>
+                <h5>Nurse: <?php echo $row['nname']; ?></h5>
                 <h5>Feedback: <?php echo $row['comment']; ?></h5>
               </div>
             </div>

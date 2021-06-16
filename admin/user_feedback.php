@@ -51,7 +51,7 @@ include ("header.php");
     <section id="doctors" class="doctors" style="margin-top:100px;">
       <div class="container">
         <div class="section-title">
-          <h2>User Feedback</h2>
+          <h2>Feedback By User</h2>
         </div>
 
         <div class="row">
@@ -61,7 +61,7 @@ $sql="SELECT * from user where email='$email'";
 $result=mysqli_query($con,$sql);
 $row=mysqli_fetch_array($result);
 $uid=$row['uid'];
-$sql1="SELECT * from user_feedback f,patient p,nurse n where f.nid=n.nid and f.pid=p.pid;";
+$sql1="SELECT * from user_feedback f,patient p,nurse n,user u where f.nid=n.nid and f.pid=p.pid and u.uid=f.uid;";
 $s1=mysqli_query($con,$sql1);
 while(($row=mysqli_fetch_array($s1))==TRUE)
 {?>
@@ -72,7 +72,7 @@ while(($row=mysqli_fetch_array($s1))==TRUE)
                 <h3><?php echo $row['nname'];?></h3>
                 <span></span>
                 <p>Patient Name:<?php echo $row['pname']; ?></p>
-                <p>Nurse Name: <?php echo $row['nname']; ?></p>
+                <p>User Name: <?php echo $row['uname']; ?></p>
                 <p>Feedback: <?php echo $row['comment']; ?></p>
               </div>
             </div>

@@ -72,9 +72,8 @@ while(($row=mysqli_fetch_array($s1))==TRUE)
               <div class="member-info">
                 <h3><?php echo $row['nname'];?></h3>
                 <span></span>
-                <p>Patient Name:<?php echo $row['pname']; ?></p>
-                <p>Nurse Name: <?php echo $row['nname']; ?></p>
-                <p>Feedback: <?php echo $row['comment']; ?></p>
+                <h5>Patient Name:<?php echo $row['pname']; ?></h5>
+                <h5>Feedback: <?php echo $row['comment']; ?></h5>
               </div>
             </div>
           </div>

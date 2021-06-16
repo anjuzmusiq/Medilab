@@ -43,47 +43,32 @@ include ("connect.php");
 include ("header.php");
 ?>
  
-  <!-- ======= Why Us Section ======= -->
-  <main id="main">
-  <section id="why-us" class="why-us">
-      <div class="container">
-      <section id="hero" class="d-flex align-items-center">
-    <div class="container">
-      <h1 style="text-align:center">NURSE,Welcome to Medilab</h1>      
+ <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-top:50px;max-height:100%">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="..\assets\img\18.jpg" alt="First slide">
     </div>
-  </section><!-- End Hero -->
-        <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
-              <h3>HI NURSE</h3>
-              <p>
-               <h2> We are ready to help!</h2>
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
-              <h3>HI NURSE</h3>
-              <p>
-              <h2>How can we help u!</h2>
-              </p>
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
-              <h3>HI NURSE</h3>
-              <p>
-              <h2>We are ready to help!<h2>
-              </p>
-              </p>
-            </div>
-          </div>
-          
-        </div>
-
-      </div>
-    </section><!-- End Why Us Section -->
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..\assets\img\12.jpeg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..\assets\img\nurse-group.jpg" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 </main>
 
 <div id="preloader"></div>

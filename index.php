@@ -42,62 +42,32 @@
 include ("connect.php");
 include ("header.php");
 ?>
-<section id="hero" class="d-flex align-items-center">
-    <div class="container">
-      <h1>Welcome to Medilab</h1>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-top:350px;max-height:100%">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="assets\img\13.png" alt="First slide">
     </div>
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-<section id="why-us" class="why-us">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch" style="background-color:transparent">
-            <div class="content">
-              <h3>Why Choose Medilab?</h3>
-              <p>
-                
-              </p>Life is better when caregivers come to you
-Our Talent Is Caring™. Having a caregiver come to your home should be reassuring, not overwhelming. We manage everything, every step of the way. Let your daughter be your daughter.
-              <div class="text-center">
-                
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="icon-boxes d-flex flex-column justify-content-center">
-              <div class="row">
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-receipt"></i>
-                    <h4>Screened and Tested</h4>
-                    <p>Our Certified Nursing Aides, Licensed Practical Nurses and Registered Nurses come with years of medical experience and training.</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Comprehensive Training</h4>
-                    <p>To set them up for success, our training prepares caregivers to align with our core values and brand promises. </p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
-                    <h4>Long-term Retraining
-</h4>
-                    <p>Caregivers who have worked with us long-term are invited back for retraining to refresh their skills.</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End .content-->
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Why Us Section -->
+    <div class="carousel-item">
+      <img class="d-block w-100" src="assets\img\21.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="assets\img\nurse.png" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div><!-- End Why Us Section -->
 <div id="preloader"></div>
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 

@@ -36,40 +36,8 @@
             <li><a href="nurse_feedback.php">Nurse</a></li>
             </ul>
           </li>
-          <li class="drop-down"><a href="">Report</a>
-            <ul>
-              
-              <li class="drop-down"><a href="#">User</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li class="drop-down"><a href="#">Patient</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li class="drop-down"><a href="#">Nurse</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-
-            </ul>
-          </li>
-          <li><a href="add_category.php">Add category</a></li>
+          <li><a href="report/index.php">Report</a></li>
+          <li><a href="add_category.php">Add Category</a></li>
             
             <li><a href="change_password.php">Change Password</a></li>
             

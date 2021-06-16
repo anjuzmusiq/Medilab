@@ -90,7 +90,7 @@ include ("header.php");
                     <option value="">Nurse Name</option>
 <?php
 
-$sql2="SELECT * from allocate,nurse where allocate.nid=nurse.nid and allocate.uid=1 and nurse.status=1 and nurse.final_status=1";
+$sql2="SELECT * from allocate,nurse where allocate.nid=nurse.nid and allocate.uid=$uid and nurse.status=1 and nurse.final_status=1";
 $result2=mysqli_query($con,$sql2);
 while(($row2=mysqli_fetch_array($result2))==TRUE)
 {?>
@@ -106,6 +106,7 @@ while(($row2=mysqli_fetch_array($result2))==TRUE)
                 <select name="pid" id="pid" class="form-control"required>
                     <option value="">Patient Name</option>
 <?php
+$nid=$row2['nid'];
 $sql3="SELECT * from allocate,patient where allocate.pid=patient.pid and allocate.uid=$uid and patient.status=1 and  patient.final_status=1";
 $result3=mysqli_query($con,$sql3);
 while(($row3=mysqli_fetch_array($result3))==TRUE)

@@ -53,7 +53,7 @@ include ("header.php");
       <img class="d-block w-100" src="..\assets\img\about.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="..\assets\img\hero-bg.jpg" alt="Second slide">
+      <img class="d-block w-100" src="..\assets\img\12.jpeg" alt="Second slide">
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="..\assets\img\nurse-group.jpg" alt="Third slide">

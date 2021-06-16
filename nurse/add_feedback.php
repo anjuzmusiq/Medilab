@@ -91,7 +91,7 @@ include ("header.php");
                     <option value="">Nurse Name</option>
 <?php
 
-$sql2="SELECT * from allocate,nurse where allocate.nid=nurse.nid and allocate.uid=1 and nurse.status=1 and nurse.final_status=1";
+$sql2="SELECT * from allocate,nurse where allocate.nid=nurse.nid and allocate.nid=$nid and nurse.status=1 and nurse.final_status=1";
 $result2=mysqli_query($con,$sql2);
 while(($row2=mysqli_fetch_array($result2))==TRUE)
 {?>

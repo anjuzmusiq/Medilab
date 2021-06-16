@@ -19,9 +19,9 @@
           </li>
           <li class="drop-down"><a>Login</a>
             <ul>
-            <li><a href="admin_login.php">admin</a></li>
-            <li><a href="user_login.php">user</a></li>
+            <li><a href="user_login.php">User</a></li>
             <li><a href="nurse_login.php">Nurse</a></li>
+            <li><a href="admin_login.php">Admin</a></li>
             </ul>
           </li>
         </ul>
