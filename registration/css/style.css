@@ -137,8 +137,10 @@ body {
   color: #222;
   font-weight: 400;
   font-family: 'Montserrat';
-  background-image: url("../images/2.jpg");
+  background-image: url("../images/group1.png");
   background-repeat: no-repeat;
+  max-width:100%;
+  height:auto;
   background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;

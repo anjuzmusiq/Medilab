@@ -169,12 +169,7 @@
                   <p>Rejected Nurse</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon text-warning"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
+              
             </ul>
           </li>
           </li>

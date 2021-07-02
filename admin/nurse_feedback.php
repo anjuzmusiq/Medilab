@@ -62,7 +62,7 @@ $sql="SELECT * from nurse";
 $result=mysqli_query($con,$sql);
 $row=mysqli_fetch_array($result);
 $nid=$row['nid'];
-$sql1="SELECT * from nurse_feedback f,patient p,nurse n, user u where f.uid=u.uid and f.nid=n.nid and f.pid=p.pid and f.nid=$nid;";
+$sql1="SELECT * from nurse_feedback f,patient p,nurse n, user u where f.nid=n.nid and f.pid=p.pid and f.nid=$nid;";
 $s1=mysqli_query($con,$sql1);
 while(($row=mysqli_fetch_array($s1))==TRUE)
 {?>
